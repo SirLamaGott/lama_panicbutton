@@ -34,3 +34,5 @@ AddEventHandler('lama_panicbutton:sendPosition', function(pos, type)
 		end
 	end) 
 end)
+
+-- hi leon
