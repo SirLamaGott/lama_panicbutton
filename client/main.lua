@@ -8,8 +8,8 @@ RegisterCommand('position', function(source, args, rawCommand)
 	TriggerServerEvent('lama_panicbutton:firepos', senderPosition)
 end, false)
 
-RegisterKeyMapping('panic', 'Notfall Knopf', 'keyboard', 'HOME')
-RegisterKeyMapping('position', 'Position Knopf', 'keyboard', 'HOME')
+RegisterKeyMapping('panic', _U('panicbutton'), 'keyboard', Config.PanicButton)
+RegisterKeyMapping('position', _U('positionbutton'), 'keyboard', Config.PositionButton)
 
 RegisterNetEvent('lama_panicbutton:sendPosition') 
 AddEventHandler('lama_panicbutton:sendPosition', function(pos, type) 
@@ -21,7 +21,7 @@ AddEventHandler('lama_panicbutton:sendPosition', function(pos, type)
 			local pedCoords = GetEntityCoords(ped)
 			sleep = 0
 
-			ESX.ShowHelpNotification('Drücke ~INPUT_CONTEXT~ um einen Wegpunkt zu setzen oder ~INPUT_DETONATE~, um die Anfrage abzulehnen.', false, true)
+			ESX.ShowHelpNotification(_U('waypoint'), false, true)
 			if IsControlJustReleased(2, 38) then
 				SetNewWaypoint(pos.x, pos.y)
 				break
@@ -34,5 +34,3 @@ AddEventHandler('lama_panicbutton:sendPosition', function(pos, type)
 		end
 	end) 
 end)
-
--- hi leon
