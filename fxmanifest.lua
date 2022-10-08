@@ -7,6 +7,8 @@ description 'Lama - Panic & Position Button'
 version '0.1.0'
 
 shared_script '@es_extended/imports.lua'
+shared_script 'config.lua'
+shared_script 'locales/*.lua'
 client_scripts {
 	'client/main.lua'
 }
@@ -17,5 +19,7 @@ server_scripts {
  
 escrow_ignore {
   'server/*.lua',
-  'client/*.lua'
+  'locales/*.lua'
+  'client/*.lua',
+  'config.lua'
 } 
