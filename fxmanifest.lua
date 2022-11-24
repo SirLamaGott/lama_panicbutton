@@ -4,10 +4,10 @@ lua54 'yes'
 
 author 'SirLamaGott'
 description 'Lama - Panic & Position Button'
-version '0.1.0'
+version '1.1.0'
 
-shared_script '@es_extended/imports.lua'
-shared_script '@es_extended/locale.lua',
+shared_script '@es_extended/imports.lua' 
+shared_script '@es_extended/locale.lua'
 
 shared_scripts { 
   'config.lua',
