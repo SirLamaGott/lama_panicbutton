@@ -3,8 +3,8 @@ local QBCore = exports['qb-core']:GetCoreObject()
 RegisterNetEvent('lama_panicbutton:qbcore:firepanic')
 AddEventHandler('lama_panicbutton:qbcore:firepanic', function(senderPosition)
 	local Players = QBCore.Functions.GetQBPlayers()
-	local Player = QBCore.Functions.GetPlayerData()
-	local jobName = Player.job.name
+	local Player = QBCore.Functions.GetPlayer(source)
+	local jobName = Player.PlayerData.job.name
 
 	if jobName == 'police' then
 		for _, qbPlayer in pairs(Players) do
@@ -17,8 +17,8 @@ end)
 RegisterNetEvent('lama_panicbutton:qbcore:firepos') 
 AddEventHandler('lama_panicbutton:qbcore:firepos', function(senderPosition)
 	local Players = QBCore.Functions.GetQBPlayers()
-	local Player = QBCore.Functions.GetPlayerData()
-	local jobName = Player.job.name
+	local Player = QBCore.Functions.GetPlayer(source)
+	local jobName = Player.PlayerData.job.name
 
 	if jobName == 'police' then
 		for _, qbPlayer in pairs(Players) do 

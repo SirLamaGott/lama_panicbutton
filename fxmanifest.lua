@@ -4,9 +4,9 @@ lua54 'yes'
 
 author 'SirLamaGott'
 description 'Lama - (QBCORE) Panic & Position Button'
-version '1.2.0-dev'
+version '1.2.0'
 
-shared_script '@qb-core/shared/locale.lua',
+shared_script '@qb-core/shared/locale.lua'
 
 shared_scripts { 
   'config.lua',
