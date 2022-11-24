@@ -20,7 +20,7 @@ client_scripts {
 server_scripts {
 	'server/main.lua'
 }
-
+  
 escrow_ignore {
   'server/*.lua',
   'locales/*.lua',

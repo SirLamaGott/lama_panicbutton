@@ -13,7 +13,7 @@ AddEventHandler('lama_panicbutton:qbcore:firepanic', function(senderPosition)
 		end 
 	end
 end) 
-
+ 
 RegisterNetEvent('lama_panicbutton:qbcore:firepos') 
 AddEventHandler('lama_panicbutton:qbcore:firepos', function(senderPosition)
 	local Players = QBCore.Functions.GetQBPlayers()

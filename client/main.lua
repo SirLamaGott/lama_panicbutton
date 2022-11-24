@@ -9,8 +9,8 @@ RegisterCommand('+position', function(source, args, rawCommand)
 	TriggerServerEvent('lama_panicbutton:qbcore:firepos', senderPosition)
 end, false)
 
-RegisterKeyMapping('+panic', _U('panicbutton'), 'keyboard', Config.PanicButton)
-RegisterKeyMapping('+position', _U('positionbutton'), 'keyboard', Config.PositionButton) 
+RegisterKeyMapping('+panic', Lang:t('panicbutton'), 'keyboard', Config.PanicButton)
+RegisterKeyMapping('+position', Lang:t('positionbutton'), 'keyboard', Config.PositionButton)  
 
 RegisterNetEvent('lama_panicbutton:qbcore:sendPosition') 
 AddEventHandler('lama_panicbutton:qbcore:sendPosition', function(pos, type) 
@@ -22,8 +22,7 @@ AddEventHandler('lama_panicbutton:qbcore:sendPosition', function(pos, type)
 			local pedCoords = GetEntityCoords(ped)
 			sleep = 0
 
-
-			ESX.ShowHelpNotification(_U('waypoint'), false, true)
+			showHelpNotification(Lang:t('waypoint'))
 			if IsControlJustReleased(2, 38) then
 				SetNewWaypoint(pos.x, pos.y)
 				break
@@ -43,4 +42,10 @@ AddEventHandler('lama_panicbutton:qbcore:showNotification', function(sender, sub
     BeginTextCommandThefeedPost('AdvancedNotification')
     EndTextCommandThefeedPostMessagetext(textureDict, textureDict, false, iconType, sender, subject)
 end)
+
+function showHelpNotification(msg)
+	SetNotificationTextEntry("STRING")
+    AddTextComponentString(msg)
+    DrawNotification(0, 0, 0, -1) 
+end
 

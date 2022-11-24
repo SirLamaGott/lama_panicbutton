@@ -10,7 +10,7 @@ Config.PanicButtonLayout = {
 
     Title = 'Police System', -- title of the notification
     SubTitle = '~r~PANIC BUTTON', -- subtitle of the notification
-
+  
     Content = 'Officer ~r~%s~s~ has fired his panic button!', -- "%s" is the officer name
     Icon = 'CHAR_CALL911' -- icons can be found here: https://wiki.rage.mp/index.php?title=Notification_Pictures
 
