@@ -1,18 +1,19 @@
+QBCore = exports['qb-core']:GetCoreObject()
 RegisterCommand('+panic', function(source, args, rawCommand)
 	local senderPosition = GetEntityCoords(PlayerPedId())
-	TriggerServerEvent('lama_panicbutton:firepanic', senderPosition)
+	TriggerServerEvent('lama_panicbutton:qbcore:firepanic', senderPosition)
 end, false)
 
 RegisterCommand('+position', function(source, args, rawCommand) 
 	local senderPosition = GetEntityCoords(PlayerPedId())
-	TriggerServerEvent('lama_panicbutton:firepos', senderPosition)
+	TriggerServerEvent('lama_panicbutton:qbcore:firepos', senderPosition)
 end, false)
 
 RegisterKeyMapping('+panic', _U('panicbutton'), 'keyboard', Config.PanicButton)
 RegisterKeyMapping('+position', _U('positionbutton'), 'keyboard', Config.PositionButton) 
 
-RegisterNetEvent('lama_panicbutton:sendPosition') 
-AddEventHandler('lama_panicbutton:sendPosition', function(pos, type) 
+RegisterNetEvent('lama_panicbutton:qbcore:sendPosition') 
+AddEventHandler('lama_panicbutton:qbcore:sendPosition', function(pos, type) 
 	if Config.UseSounds then if type == 'panic' then TriggerServerEvent('InteractSound_SV:PlayOnSource', 'panic', 1.0) end end  
 	Citizen.CreateThread(function()
 		while true do
@@ -20,6 +21,7 @@ AddEventHandler('lama_panicbutton:sendPosition', function(pos, type)
 			local ped = PlayerPedId()
 			local pedCoords = GetEntityCoords(ped)
 			sleep = 0
+
 
 			ESX.ShowHelpNotification(_U('waypoint'), false, true)
 			if IsControlJustReleased(2, 38) then
@@ -32,5 +34,13 @@ AddEventHandler('lama_panicbutton:sendPosition', function(pos, type)
 
 			Citizen.Wait(sleep)
 		end
-	end) 
+	end)  
 end)
+
+RegisterNetEvent('lama_panicbutton:qbcore:showNotification')
+AddEventHandler('lama_panicbutton:qbcore:showNotification', function(sender, subject, msg, textureDict, iconType)
+	AddTextEntry('AdvancedNotification', msg)
+    BeginTextCommandThefeedPost('AdvancedNotification')
+    EndTextCommandThefeedPostMessagetext(textureDict, textureDict, false, iconType, sender, subject)
+end)
+
