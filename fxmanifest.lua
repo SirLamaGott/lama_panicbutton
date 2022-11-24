@@ -4,7 +4,7 @@ lua54 'yes'
 
 author 'SirLamaGott'
 description 'Lama - Panic & Position Button'
-version '1.1.0'
+version '1.2.0'
 
 shared_script '@es_extended/imports.lua' 
 shared_script '@es_extended/locale.lua'
@@ -21,7 +21,8 @@ client_scripts {
 server_scripts {
 	'server/main.lua'
 }
- 
+
+dependency 'es_extended' 
 escrow_ignore {
   'server/*.lua',
   'locales/*.lua',
